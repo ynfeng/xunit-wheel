@@ -13,7 +13,7 @@ public class TestCaseTest extends TestCase {
         assertEquals("method1", testCase.methodRunLog);
     }
 
-    public void should_run_multi_test_method() {
+    public void should_run_multiple_test_method() {
         MultiTestMethodTestCase testCase = new MultiTestMethodTestCase();
         testCase.registerTestMethod(testCase::method1);
         testCase.registerTestMethod(testCase::method2);
@@ -25,7 +25,7 @@ public class TestCaseTest extends TestCase {
 
     public static void main(String[] args) {
         TestCaseTest testCase = new TestCaseTest();
-        testCase.registerTestMethod(testCase::should_run_multi_test_method);
+        testCase.registerTestMethod(testCase::should_run_multiple_test_method);
         testCase.registerTestMethod(testCase::should_run_test_method);
         testCase.run();
     }
