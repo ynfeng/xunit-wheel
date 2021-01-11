@@ -6,8 +6,8 @@ import java.util.List;
 public class TestCase {
     private final List<Runnable> testMethods = new ArrayList<>();
 
-    public void registerTestMethod(Runnable method1) {
-        testMethods.add(method1);
+    public void registerTestMethod(String name, Runnable runnable) {
+        testMethods.add(runnable);
     }
 
     public void run() {

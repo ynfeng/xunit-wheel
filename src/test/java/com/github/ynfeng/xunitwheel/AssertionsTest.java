@@ -29,9 +29,9 @@ public class AssertionsTest extends TestCase {
 
     public static void main(String[] args) {
         AssertionsTest testCase = new AssertionsTest();
-        testCase.registerTestMethod(testCase::should_fail);
-        testCase.registerTestMethod(testCase::should_not_equals);
-        testCase.registerTestMethod(testCase::should_equals);
+        testCase.registerTestMethod("should_fail", testCase::should_fail);
+        testCase.registerTestMethod("should_not_equals", testCase::should_not_equals);
+        testCase.registerTestMethod("should_equals", testCase::should_equals);
         testCase.run();
     }
 }
