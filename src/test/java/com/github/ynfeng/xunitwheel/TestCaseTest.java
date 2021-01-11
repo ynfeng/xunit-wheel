@@ -1,5 +1,7 @@
 package com.github.ynfeng.xunitwheel;
 
+import static com.github.ynfeng.xunitwheel.Assertions.assertEquals;
+
 public class TestCaseTest extends TestCase {
 
     public void should_run_one_test_method() {
@@ -8,9 +10,7 @@ public class TestCaseTest extends TestCase {
 
         testCase.run();
 
-        if (!"method1".equals(testCase.methodRunLog)) {
-            throw new RuntimeException("method not run.");
-        }
+        assertEquals("method1", testCase.methodRunLog);
     }
 
     public void should_run_multi_test_method() {
@@ -20,9 +20,7 @@ public class TestCaseTest extends TestCase {
 
         testCase.run();
 
-        if (!"method1 method2".equals(testCase.methodRunLog)) {
-            throw new RuntimeException("some method not run.");
-        }
+        assertEquals("method1 method2", testCase.methodRunLog);
     }
 
     public static void main(String[] args) {
