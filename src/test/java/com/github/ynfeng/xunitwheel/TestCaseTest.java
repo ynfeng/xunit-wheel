@@ -2,6 +2,8 @@ package com.github.ynfeng.xunitwheel;
 
 import static com.github.ynfeng.xunitwheel.Assertions.assertEquals;
 
+import java.util.Arrays;
+
 public class TestCaseTest extends TestCase {
 
     public void should_run_test_method() {
@@ -20,6 +22,8 @@ public class TestCaseTest extends TestCase {
 
         testCase.run();
 
+        assertEquals(testCase.numOfTestMethod(), 2);
+        assertEquals(testCase.testMethodNames(), Arrays.asList("method1", "method2"));
         assertEquals("method1 method2", testCase.methodRunLog);
     }
 
