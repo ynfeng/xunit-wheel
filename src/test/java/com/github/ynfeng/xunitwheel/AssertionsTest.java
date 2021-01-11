@@ -5,6 +5,12 @@ import static com.github.ynfeng.xunitwheel.Assertions.fail;
 
 public class AssertionsTest extends TestCase {
 
+    public AssertionsTest() {
+        registerTestMethod("should_fail", this::should_fail);
+        registerTestMethod("should_not_equals", this::should_not_equals);
+        registerTestMethod("should_equals", this::should_equals);
+    }
+
     public void should_fail() {
         try {
             fail();
@@ -28,10 +34,6 @@ public class AssertionsTest extends TestCase {
     }
 
     public static void main(String[] args) {
-        AssertionsTest testCase = new AssertionsTest();
-        testCase.registerTestMethod("should_fail", testCase::should_fail);
-        testCase.registerTestMethod("should_not_equals", testCase::should_not_equals);
-        testCase.registerTestMethod("should_equals", testCase::should_equals);
-        testCase.run();
+        new AssertionsTest().run();
     }
 }

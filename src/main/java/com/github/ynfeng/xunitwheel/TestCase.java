@@ -5,7 +5,7 @@ import java.util.List;
 public class TestCase {
     private final TestMethods testMethods = new TestMethods();
 
-    public void registerTestMethod(String name, Runnable runnable) {
+    protected void registerTestMethod(String name, Runnable runnable) {
         testMethods.add(TestMethod.create(name, runnable));
     }
 
