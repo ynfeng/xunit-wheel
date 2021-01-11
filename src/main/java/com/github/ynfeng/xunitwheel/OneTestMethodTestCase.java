@@ -1,6 +1,6 @@
 package com.github.ynfeng.xunitwheel;
 
-public class TestMethods {
+public class OneTestMethodTestCase {
     public String methodRunLog = "";
 
     public void run() {

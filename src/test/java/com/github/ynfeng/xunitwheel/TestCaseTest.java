@@ -2,12 +2,12 @@ package com.github.ynfeng.xunitwheel;
 
 public class TestCaseTest {
 
-    public void should_run_test_method() {
-        TestMethods testMethods = new TestMethods();
+    public void should_run_one_test_method() {
+        OneTestMethodTestCase oneTestMethodTestCase = new OneTestMethodTestCase();
 
-        testMethods.run();
+        oneTestMethodTestCase.run();
 
-        if (!"method1".equals(testMethods.methodRunLog)) {
+        if (!"method1".equals(oneTestMethodTestCase.methodRunLog)) {
             throw new RuntimeException("method not run.");
         }
     }
@@ -23,6 +23,6 @@ public class TestCaseTest {
 //    }
 
     public static void main(String[] args) {
-        new TestCaseTest().should_run_test_method();
+        new TestCaseTest().should_run_one_test_method();
     }
 }
