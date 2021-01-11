@@ -3,11 +3,11 @@ package com.github.ynfeng.xunitwheel;
 public class TestCaseTest {
 
     public void should_run_one_test_method() {
-        OneTestMethodTestCase oneTestMethodTestCase = new OneTestMethodTestCase();
+        OneTestMethodTestCase testCase = new OneTestMethodTestCase();
 
-        oneTestMethodTestCase.run();
+        testCase.run();
 
-        if (!"method1".equals(oneTestMethodTestCase.methodRunLog)) {
+        if (!"method1".equals(testCase.methodRunLog)) {
             throw new RuntimeException("method not run.");
         }
     }
