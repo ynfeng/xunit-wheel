@@ -1,6 +1,6 @@
 package com.github.ynfeng.xunitwheel;
 
-public class TestCaseTest {
+public class TestCaseTest extends TestCase {
 
     public void should_run_one_test_method() {
         OneTestMethodTestCase testCase = new OneTestMethodTestCase();
@@ -26,7 +26,9 @@ public class TestCaseTest {
     }
 
     public static void main(String[] args) {
-        new TestCaseTest().should_run_one_test_method();
-        new TestCaseTest().should_run_multi_test_method();
+        TestCaseTest testCase = new TestCaseTest();
+        testCase.registerTestMethod(testCase::should_run_multi_test_method);
+        testCase.registerTestMethod(testCase::should_run_one_test_method);
+        testCase.run();
     }
 }
