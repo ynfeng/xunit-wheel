@@ -4,6 +4,7 @@ public class TestCaseTest {
 
     public void should_run_one_test_method() {
         OneTestMethodTestCase testCase = new OneTestMethodTestCase();
+        testCase.registerTestMethod(testCase::method1);
 
         testCase.run();
 
@@ -14,6 +15,8 @@ public class TestCaseTest {
 
     public void should_run_multi_test_method() {
         MultiTestMethodTestCase testCase = new MultiTestMethodTestCase();
+        testCase.registerTestMethod(testCase::method1);
+        testCase.registerTestMethod(testCase::method2);
 
         testCase.run();
 
