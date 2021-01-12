@@ -51,7 +51,7 @@ public class TestCaseTest extends TestCase {
 
         assertEquals(methodResults.get(0).methodName(), "brokenMethod");
         assertEquals(methodResults.get(0).isSuccess(), false);
-        assertEquals(methodResults.get(0).exception().getClass(), RuntimeException.class);
+        assertEquals(methodResults.get(0).failedCause().getClass(), RuntimeException.class);
     }
 
     public static void main(String[] args) {

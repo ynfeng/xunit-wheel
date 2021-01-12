@@ -2,23 +2,23 @@ package com.github.ynfeng.xunitwheel;
 
 public class MethodResult {
     private final String methodName;
-    private Throwable exception;
+    private Throwable failedCause;
 
     private MethodResult(String methodName) {
         this.methodName = methodName;
     }
 
-    public MethodResult(String methodName, Throwable exception) {
+    public MethodResult(String methodName, Throwable failedCause) {
         this.methodName = methodName;
-        this.exception = exception;
+        this.failedCause = failedCause;
     }
 
     public static MethodResult success(String name) {
         return new MethodResult(name);
     }
 
-    public static MethodResult failed(String name, Throwable t) {
-        return new MethodResult(name, t);
+    public static MethodResult failed(String name, Throwable cause) {
+        return new MethodResult(name, cause);
     }
 
     public String methodName() {
@@ -26,10 +26,10 @@ public class MethodResult {
     }
 
     public boolean isSuccess() {
-        return exception == null;
+        return failedCause == null;
     }
 
-    public Throwable exception() {
-        return exception;
+    public Throwable failedCause() {
+        return failedCause;
     }
 }
