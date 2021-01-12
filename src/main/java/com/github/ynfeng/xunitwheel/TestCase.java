@@ -9,8 +9,8 @@ public class TestCase {
         testMethods.add(TestMethod.create(name, runnable));
     }
 
-    public void run() {
-        testMethods.run();
+    public TestResult run() {
+        return testMethods.run();
     }
 
     protected int numOfTestMethod() {
