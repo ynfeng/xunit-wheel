@@ -10,7 +10,7 @@ public class TestCaseTest extends TestCase {
         registerTestMethod("should_run_multiple_test_method", this::should_run_multiple_test_method);
         registerTestMethod("should_run_test_method", this::should_run_test_method);
         registerTestMethod("should_return_test_result", this::should_return_method_results);
-        registerTestMethod("should_return_falied_method_result", this::should_return_falied_method_result);
+        registerTestMethod("should_return_falied_method_result", this::should_return_failed_method_result);
     }
 
     public void should_run_test_method() {
@@ -43,7 +43,7 @@ public class TestCaseTest extends TestCase {
         assertEquals(methodResults.get(1).isSuccess(), true);
     }
 
-    public void should_return_falied_method_result() {
+    public void should_return_failed_method_result() {
         BrokenTestCase testCase = new BrokenTestCase();
 
         TestResult testResult = testCase.run();
