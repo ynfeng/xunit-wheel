@@ -33,7 +33,7 @@ public class AssertionsTest extends TestCase {
         assertEquals("a", "a");
     }
 
-    public static void main(String[] args) {
-        new AssertionsTest().run();
+    public static void main(String[] args) throws Throwable {
+        new AssertionsTest().run().reportAnyFailed();
     }
 }

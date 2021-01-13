@@ -14,4 +14,15 @@ public class TestResult {
     public List<MethodResult> methodResults() {
         return Collections.unmodifiableList(methodResults);
     }
+
+    public void reportAnyFailed() throws Throwable {
+        Throwable anyFailed = methodResults.stream()
+            .filter(each -> each.failedCause() != null)
+            .findAny()
+            .map(MethodResult::failedCause)
+            .orElse(null);
+        if (anyFailed != null) {
+            throw anyFailed;
+        }
+    }
 }
