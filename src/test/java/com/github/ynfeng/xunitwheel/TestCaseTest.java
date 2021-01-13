@@ -14,7 +14,7 @@ public class TestCaseTest extends TestCase {
     }
 
     public void should_run_test_method() {
-        OneTestMethodTestCase testCase = new OneTestMethodTestCase();
+        SingleTestMethodTestCase testCase = new SingleTestMethodTestCase();
 
         testCase.run();
 

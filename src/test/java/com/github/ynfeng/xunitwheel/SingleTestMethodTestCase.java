@@ -1,9 +1,9 @@
 package com.github.ynfeng.xunitwheel;
 
-public class OneTestMethodTestCase extends TestCase {
+public class SingleTestMethodTestCase extends TestCase {
     public String methodRunLog = "";
 
-    public OneTestMethodTestCase() {
+    public SingleTestMethodTestCase() {
         registerTestMethod("method1", this::method1);
     }
 

@@ -2,7 +2,7 @@ package com.github.ynfeng.xunitwheel;
 
 import java.util.List;
 
-public class TestCase {
+public abstract class TestCase {
     private final TestMethods testMethods = new TestMethods();
 
     protected void registerTestMethod(String name, Runnable runnable) {

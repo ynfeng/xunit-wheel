@@ -10,7 +10,7 @@ public class TestSuiteTest extends TestCase {
     public void should_create_test_suite() {
         TestSuite testSuite = new TestSuite();
         testSuite.registerTestCase(new MultiTestMethodTestCase());
-        testSuite.registerTestCase(new OneTestMethodTestCase());
+        testSuite.registerTestCase(new SingleTestMethodTestCase());
 
         assertEquals(testSuite.numOfTestCase(), 2);
         assertEquals(testSuite.name(), "TestSuite");
