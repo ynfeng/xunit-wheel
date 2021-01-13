@@ -11,8 +11,7 @@ public class TestMethods {
         methods.add(testMethod);
     }
 
-    public TestCaseResult run() {
-        TestCaseResult testCaseResult = new TestCaseResult();
+    public void run(TestCaseResult testCaseResult) {
         methods.forEach(method -> {
             try {
                 method.run();
@@ -21,7 +20,6 @@ public class TestMethods {
                 testCaseResult.addMethodResult(MethodResult.failed(method.name(), t));
             }
         });
-        return testCaseResult;
     }
 
     public int size() {

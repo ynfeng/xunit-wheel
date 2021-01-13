@@ -16,13 +16,17 @@ public class TestCaseResult {
     }
 
     public void reportAnyFailed() throws Throwable {
-        Throwable anyFailed = methodResults.stream()
+        Throwable anyFailed = findAnyFailed();
+        if (anyFailed != null) {
+            throw anyFailed;
+        }
+    }
+
+    private Throwable findAnyFailed() {
+        return methodResults.stream()
             .filter(each -> each.failedCause() != null)
             .findAny()
             .map(MethodResult::failedCause)
             .orElse(null);
-        if (anyFailed != null) {
-            throw anyFailed;
-        }
     }
 }

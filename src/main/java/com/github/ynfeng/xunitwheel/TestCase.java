@@ -10,7 +10,9 @@ public abstract class TestCase {
     }
 
     public TestCaseResult run() {
-        return testMethods.run();
+        TestCaseResult testCaseResult = new TestCaseResult();
+        testMethods.run(testCaseResult);
+        return testCaseResult;
     }
 
     protected int numOfTestMethod() {
