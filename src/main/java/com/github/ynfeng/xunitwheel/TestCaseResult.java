@@ -3,6 +3,7 @@ package com.github.ynfeng.xunitwheel;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class TestCaseResult {
     private final List<MethodResult> methodResults = new ArrayList<>();
@@ -28,5 +29,22 @@ public class TestCaseResult {
             .findAny()
             .map(MethodResult::failedCause)
             .orElse(null);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof TestCaseResult)) {
+            return false;
+        }
+        TestCaseResult that = (TestCaseResult) o;
+        return methodResults.equals(that.methodResults);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(methodResults);
     }
 }

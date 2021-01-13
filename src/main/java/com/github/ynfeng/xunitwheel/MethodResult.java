@@ -1,5 +1,7 @@
 package com.github.ynfeng.xunitwheel;
 
+import java.util.Objects;
+
 public class MethodResult {
     private final String methodName;
     private Throwable failedCause;
@@ -31,5 +33,22 @@ public class MethodResult {
 
     public Throwable failedCause() {
         return failedCause;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof MethodResult)) {
+            return false;
+        }
+        MethodResult that = (MethodResult) o;
+        return methodName.equals(that.methodName) && Objects.equals(failedCause, that.failedCause);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(methodName, failedCause);
     }
 }
