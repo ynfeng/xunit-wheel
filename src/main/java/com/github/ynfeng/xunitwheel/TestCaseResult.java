@@ -47,4 +47,11 @@ public class TestCaseResult {
     public int hashCode() {
         return Objects.hash(methodResults);
     }
+
+    @Override
+    public String toString() {
+        return "TestCaseResult{" +
+            "methodResults=" + methodResults +
+            '}';
+    }
 }

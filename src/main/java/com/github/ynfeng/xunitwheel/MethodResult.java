@@ -44,11 +44,19 @@ public class MethodResult {
             return false;
         }
         MethodResult that = (MethodResult) o;
-        return methodName.equals(that.methodName) && Objects.equals(failedCause, that.failedCause);
+        return methodName.equals(that.methodName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(methodName, failedCause);
+        return Objects.hash(methodName);
+    }
+
+    @Override
+    public String toString() {
+        return "MethodResult{" +
+            "methodName='" + methodName + '\'' +
+            ", failedCause=" + failedCause +
+            '}';
     }
 }
