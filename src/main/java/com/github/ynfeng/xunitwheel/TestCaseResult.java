@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class TestResult {
+public class TestCaseResult {
     private final List<MethodResult> methodResults = new ArrayList<>();
 
     protected void addMethodResult(MethodResult methodResult) {

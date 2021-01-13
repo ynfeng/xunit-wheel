@@ -34,8 +34,8 @@ public class TestCaseTest extends TestCase {
     public void should_return_method_results() {
         MultiTestMethodTestCase testCase = new MultiTestMethodTestCase();
 
-        TestResult testResult = testCase.run();
-        List<MethodResult> methodResults = testResult.methodResults();
+        TestCaseResult testCaseResult = testCase.run();
+        List<MethodResult> methodResults = testCaseResult.methodResults();
 
         assertEquals(methodResults.get(0).methodName(), "method1");
         assertEquals(methodResults.get(0).isSuccess(), true);
@@ -46,8 +46,8 @@ public class TestCaseTest extends TestCase {
     public void should_return_failed_method_result() {
         BrokenTestCase testCase = new BrokenTestCase();
 
-        TestResult testResult = testCase.run();
-        List<MethodResult> methodResults = testResult.methodResults();
+        TestCaseResult testCaseResult = testCase.run();
+        List<MethodResult> methodResults = testCaseResult.methodResults();
 
         assertEquals(methodResults.get(0).methodName(), "brokenMethod");
         assertEquals(methodResults.get(0).isSuccess(), false);

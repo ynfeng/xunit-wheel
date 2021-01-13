@@ -11,17 +11,17 @@ public class TestMethods {
         methods.add(testMethod);
     }
 
-    public TestResult run() {
-        TestResult testResult = new TestResult();
+    public TestCaseResult run() {
+        TestCaseResult testCaseResult = new TestCaseResult();
         methods.forEach(method -> {
             try {
                 method.run();
-                testResult.addMethodResult(MethodResult.success(method.name()));
+                testCaseResult.addMethodResult(MethodResult.success(method.name()));
             } catch (Throwable t) {
-                testResult.addMethodResult(MethodResult.failed(method.name(), t));
+                testCaseResult.addMethodResult(MethodResult.failed(method.name(), t));
             }
         });
-        return testResult;
+        return testCaseResult;
     }
 
     public int size() {

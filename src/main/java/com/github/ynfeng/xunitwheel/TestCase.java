@@ -9,7 +9,7 @@ public abstract class TestCase {
         testMethods.add(TestMethod.create(name, runnable));
     }
 
-    public TestResult run() {
+    public TestCaseResult run() {
         return testMethods.run();
     }
 
