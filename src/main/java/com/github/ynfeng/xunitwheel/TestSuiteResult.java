@@ -27,4 +27,10 @@ public class TestSuiteResult {
     public List<TestCaseResult> testCaseResults() {
         return Collections.unmodifiableList(testCaseResults);
     }
+
+    public void reportAnyFailed() throws Throwable {
+        for (TestCaseResult result : testCaseResults) {
+            result.reportAnyFailed();
+        }
+    }
 }
