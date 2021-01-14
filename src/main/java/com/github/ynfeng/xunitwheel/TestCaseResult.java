@@ -43,6 +43,10 @@ public class TestCaseResult {
         return methodResults.equals(that.methodResults);
     }
 
+    public int numOfTestMethod() {
+        return methodResults.size();
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(methodResults);

@@ -5,7 +5,7 @@ public class AllTest {
         TestSuite testSuite = new TestSuite("all test");
         testSuite.registerTestCase(new TestCaseTest());
         testSuite.registerTestCase(new AssertionsTest());
-        testSuite.registerTestCase(new TestCaseTest());
+        testSuite.registerTestCase(new TestSuiteTest());
         testSuite.run().reportAnyFailed();
     }
 }

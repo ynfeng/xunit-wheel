@@ -13,7 +13,7 @@ public class AssertionsTest extends TestCase {
 
     public void should_fail() {
         try {
-            fail();
+            fail("can not be here.");
         } catch (XunitwheelAssertionError error) {
             return;
         }
@@ -23,7 +23,7 @@ public class AssertionsTest extends TestCase {
     public void should_not_equals() {
         try {
             assertEquals("a", "b");
-            fail();
+            fail("can not be here.");
         } catch (XunitwheelAssertionError error) {
             assertEquals(error.getMessage(), "Expected <a> but <b>");
         }

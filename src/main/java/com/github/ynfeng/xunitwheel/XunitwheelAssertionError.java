@@ -5,7 +5,4 @@ public class XunitwheelAssertionError extends Error {
     public XunitwheelAssertionError(String msg) {
         super(msg);
     }
-
-    public XunitwheelAssertionError() {
-    }
 }

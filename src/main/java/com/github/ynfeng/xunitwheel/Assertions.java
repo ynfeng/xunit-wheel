@@ -11,7 +11,7 @@ public final class Assertions {
         }
     }
 
-    public static void fail() {
-        throw new XunitwheelAssertionError();
+    public static void fail(String msg) {
+        throw new XunitwheelAssertionError(msg);
     }
 }

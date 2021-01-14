@@ -11,15 +11,21 @@ public class TestMethods {
         methods.add(testMethod);
     }
 
-    public void run(TestCaseResult testCaseResult) {
+    public void run(TestCaseResult testCaseResult, Runnable setup, Runnable tearDown) {
         methods.forEach(method -> {
             try {
-                method.run();
+                invokeTestMethod(setup, method, tearDown);
                 testCaseResult.addMethodResult(MethodResult.success(method.name()));
             } catch (Throwable t) {
                 testCaseResult.addMethodResult(MethodResult.failed(method.name(), t));
             }
         });
+    }
+
+    private static void invokeTestMethod(Runnable setup, TestMethod method, Runnable tearDown) {
+        setup.run();
+        method.run();
+        tearDown.run();
     }
 
     public int size() {

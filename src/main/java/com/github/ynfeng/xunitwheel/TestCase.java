@@ -5,13 +5,20 @@ import java.util.List;
 public abstract class TestCase {
     private final TestMethods testMethods = new TestMethods();
 
+    public void setup() {
+    }
+
+    public void tearDown() {
+
+    }
+
     protected void registerTestMethod(String name, Runnable runnable) {
         testMethods.add(TestMethod.create(name, runnable));
     }
 
     public TestCaseResult run() {
         TestCaseResult testCaseResult = new TestCaseResult();
-        testMethods.run(testCaseResult);
+        testMethods.run(testCaseResult, this::setup, this::tearDown);
         return testCaseResult;
     }
 
