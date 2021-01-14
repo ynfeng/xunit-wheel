@@ -25,7 +25,7 @@ public class TestSuite {
 
     public TestSuiteResult run() {
         TestSuiteResult result = new TestSuiteResult(name);
-        testCases.forEach(testCase -> result.addTestCaseResult(testCase.run()));
+        testCases.forEach(testCase -> result.addTestCaseResult(testCase.getClass(), testCase.run()));
         return result;
     }
 }

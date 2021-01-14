@@ -44,7 +44,7 @@ public class MethodResult {
             return false;
         }
         MethodResult that = (MethodResult) o;
-        return methodName.equals(that.methodName);
+        return methodName.equals(that.methodName) && isSuccess() == that.isSuccess();
     }
 
     @Override

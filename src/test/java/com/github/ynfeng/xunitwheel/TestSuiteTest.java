@@ -26,8 +26,11 @@ public class TestSuiteTest extends TestCase {
 
         assertEquals("a test suite", testSuiteResult.testSuiteName());
         assertEquals(2, testSuiteResult.numOfTestCaseResult());
-        assertEquals(new MultiTestMethodTestCase().run(), testSuiteResult.testCaseResults().get(0));
-        assertEquals(new BrokenTestCase().run(), testSuiteResult.testCaseResults().get(1));
+
+        TestCaseResult multiMethodTestResult = testSuiteResult.testCaseResult(MultiTestMethodTestCase.class);
+        TestCaseResult borkenTestResult = testSuiteResult.testCaseResult(BrokenTestCase.class);
+        assertEquals(new MultiTestMethodTestCase().run(), multiMethodTestResult);
+        assertEquals(new BrokenTestCase().run(), borkenTestResult);
     }
 
     public static void main(String[] args) throws Throwable {
