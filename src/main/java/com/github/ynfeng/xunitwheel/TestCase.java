@@ -6,7 +6,7 @@ public abstract class TestCase {
     private final TestCaseResult testCaseResult = new TestCaseResult();
     private final TestMethods testMethods;
 
-    public TestCase() {
+    protected TestCase() {
         testMethods = new TestMethods(this);
     }
 
