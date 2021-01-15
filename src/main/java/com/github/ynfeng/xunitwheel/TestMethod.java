@@ -3,12 +3,12 @@ package com.github.ynfeng.xunitwheel;
 public class TestMethod {
     private final TestCase testCase;
     private final String name;
-    private final Runnable runnable;
+    private final Runnable method;
 
-    public TestMethod(TestCase testCase, String name, Runnable runnable) {
+    public TestMethod(TestCase testCase, String name, Runnable method) {
         this.testCase = testCase;
         this.name = name;
-        this.runnable = runnable;
+        this.method = method;
     }
 
     public static TestMethod create(TestCase testCase, String name, Runnable method) {
@@ -17,7 +17,7 @@ public class TestMethod {
 
     public void run() {
         testCase.setup();
-        runnable.run();
+        method.run();
         testCase.tearDown();
     }
 
