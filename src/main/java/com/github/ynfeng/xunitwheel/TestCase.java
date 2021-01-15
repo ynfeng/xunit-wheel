@@ -3,23 +3,30 @@ package com.github.ynfeng.xunitwheel;
 import java.util.List;
 
 public abstract class TestCase {
-    private final TestMethods testMethods = new TestMethods();
+    private final TestCaseResult testCaseResult = new TestCaseResult();
+    private final TestMethods testMethods;
+
+    public TestCase() {
+        testMethods = new TestMethods(this);
+    }
 
     public void setup() {
     }
 
     public void tearDown() {
+    }
 
+    public void addMethodResult(MethodResult methodResult) {
+        testCaseResult.addMethodResult(methodResult);
+    }
+
+    public TestCaseResult run() {
+        testMethods.run();
+        return testCaseResult;
     }
 
     protected void registerTestMethod(String name, Runnable runnable) {
         testMethods.add(TestMethod.create(this, name, runnable));
-    }
-
-    public TestCaseResult run() {
-        TestCaseResult testCaseResult = new TestCaseResult();
-        testMethods.run(testCaseResult);
-        return testCaseResult;
     }
 
     protected int numOfTestMethod() {
