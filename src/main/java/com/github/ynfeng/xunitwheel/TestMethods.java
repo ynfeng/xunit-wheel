@@ -11,7 +11,7 @@ public class TestMethods {
         methods.add(testMethod);
     }
 
-    public void run(TestCaseResult testCaseResult, Runnable setup, Runnable tearDown) {
+    public void run(TestCaseResult testCaseResult) {
         methods.forEach(method -> {
             try {
                 method.run();

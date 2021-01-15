@@ -18,7 +18,7 @@ public abstract class TestCase {
 
     public TestCaseResult run() {
         TestCaseResult testCaseResult = new TestCaseResult();
-        testMethods.run(testCaseResult, this::setup, this::tearDown);
+        testMethods.run(testCaseResult);
         return testCaseResult;
     }
 
