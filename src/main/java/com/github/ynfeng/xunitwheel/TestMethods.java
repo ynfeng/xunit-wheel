@@ -12,10 +12,10 @@ public class TestMethods {
     }
 
     public void run(TestCaseResult testCaseResult) {
-        methods.forEach(method -> invokeTestMethod(testCaseResult, method));
+        methods.forEach(method -> invokeTestMethod(method, testCaseResult));
     }
 
-    private static void invokeTestMethod(TestCaseResult testCaseResult, TestMethod method) {
+    private static void invokeTestMethod(TestMethod method, TestCaseResult testCaseResult) {
         try {
             method.run();
             testCaseResult.addMethodResult(MethodResult.success(method.name()));
