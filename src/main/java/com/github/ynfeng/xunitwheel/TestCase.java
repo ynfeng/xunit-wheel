@@ -15,8 +15,8 @@ public abstract class TestCase {
         return TestCaseResult.create(testMethods.run());
     }
 
-    protected void registerTestMethod(String name, Runnable runnable) {
-        testMethods.add(TestMethod.create(this, name, runnable));
+    protected void registerTestMethod(String name, Runnable method) {
+        testMethods.add(TestMethod.create(this, name, method));
     }
 
     protected int numOfTestMethod() {
