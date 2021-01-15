@@ -20,7 +20,7 @@ public class TestMethod {
             testCase.setup();
             method.run();
             testCase.tearDown();
-            return MethodResult.success(name);
+            return MethodResult.success(name());
         } catch (Throwable t) {
             return MethodResult.failed(name(), t);
         }

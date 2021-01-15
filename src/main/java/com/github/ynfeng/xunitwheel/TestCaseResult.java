@@ -8,8 +8,12 @@ import java.util.Objects;
 public class TestCaseResult {
     private final List<MethodResult> methodResults = new ArrayList<>();
 
-    protected void addMethodResult(MethodResult methodResult) {
-        methodResults.add(methodResult);
+    private TestCaseResult(List<MethodResult> methodResults) {
+        this.methodResults.addAll(methodResults);
+    }
+
+    public static TestCaseResult create(List<MethodResult> methodResults) {
+        return new TestCaseResult(methodResults);
     }
 
     public List<MethodResult> methodResults() {
