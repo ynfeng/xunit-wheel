@@ -1,10 +1,7 @@
 package com.github.ynfeng.xunitwheel;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class TestSuite {
-    private final List<TestCase> testCases = new ArrayList<>();
+    private final TestCases testCases = new TestCases();
     private final String name;
 
     public TestSuite(String name) {
@@ -25,7 +22,7 @@ public class TestSuite {
 
     public TestSuiteResult run() {
         TestSuiteResult result = new TestSuiteResult(name);
-        testCases.forEach(testCase -> result.addTestCaseResult(testCase.getClass(), testCase.run()));
+        testCases.run(result);
         return result;
     }
 }
