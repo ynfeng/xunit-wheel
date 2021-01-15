@@ -13,7 +13,7 @@ public abstract class TestCase {
     }
 
     protected void registerTestMethod(String name, Runnable runnable) {
-        testMethods.add(TestMethod.create(name, runnable));
+        testMethods.add(TestMethod.create(this, name, runnable));
     }
 
     public TestCaseResult run() {
