@@ -15,10 +15,15 @@ public class TestMethod {
         return new TestMethod(testCase, name, method);
     }
 
-    public void run() {
-        testCase.setup();
-        method.run();
-        testCase.tearDown();
+    public MethodResult run() {
+        try {
+            testCase.setup();
+            method.run();
+            testCase.tearDown();
+            return MethodResult.success(name);
+        } catch (Throwable t) {
+            return MethodResult.failed(name(), t);
+        }
     }
 
     public String name() {

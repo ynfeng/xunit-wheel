@@ -12,16 +12,7 @@ public class TestMethods {
     }
 
     public void run(TestCaseResult testCaseResult) {
-        methods.forEach(method -> invokeTestMethod(method, testCaseResult));
-    }
-
-    private static void invokeTestMethod(TestMethod method, TestCaseResult testCaseResult) {
-        try {
-            method.run();
-            testCaseResult.addMethodResult(MethodResult.success(method.name()));
-        } catch (Throwable t) {
-            testCaseResult.addMethodResult(MethodResult.failed(method.name(), t));
-        }
+        methods.forEach(method -> testCaseResult.addMethodResult(method.run()));
     }
 
     public int size() {
