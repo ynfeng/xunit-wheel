@@ -27,11 +27,11 @@ public class TestSuiteRunnerTest extends TestCase {
     public void should_run() {
         TestRunner.main(new String[] {"com.github.ynfeng.xunitwheel.runner.TestableTestSuite"});
 
-        String exceptedOutput = "Running com.github.ynfeng.xunitwheel.SingleTestMethodTestCase\n" +
+        String expectOutput = "Running com.github.ynfeng.xunitwheel.SingleTestMethodTestCase\n" +
             "Tests run: 1, Failures: 0\n" +
             "Running com.github.ynfeng.xunitwheel.BrokenTestCase\n" +
             "Tests run: 1, Failures: 1\n";
-        assertEquals(exceptedOutput, out.toString());
+        assertEquals(expectOutput, out.toString());
     }
 
     public static void main(String[] args) throws Throwable {
