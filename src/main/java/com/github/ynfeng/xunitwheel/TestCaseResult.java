@@ -7,13 +7,15 @@ import java.util.Objects;
 
 public class TestCaseResult {
     private final List<MethodResult> methodResults = new ArrayList<>();
+    private final String testCaseName;
 
-    private TestCaseResult(List<MethodResult> methodResults) {
+    private TestCaseResult(String testCaseName, List<MethodResult> methodResults) {
+        this.testCaseName = testCaseName;
         this.methodResults.addAll(methodResults);
     }
 
-    public static TestCaseResult create(List<MethodResult> methodResults) {
-        return new TestCaseResult(methodResults);
+    public static TestCaseResult create(String testCaseName, List<MethodResult> methodResults) {
+        return new TestCaseResult(testCaseName, methodResults);
     }
 
     public List<MethodResult> methodResults() {
@@ -35,6 +37,14 @@ public class TestCaseResult {
             .orElse(null);
     }
 
+    public String testCaseName() {
+        return testCaseName;
+    }
+
+    public int numOfTestMethod() {
+        return methodResults.size();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -47,10 +57,6 @@ public class TestCaseResult {
         return methodResults.equals(that.methodResults);
     }
 
-    public int numOfTestMethod() {
-        return methodResults.size();
-    }
-
     @Override
     public int hashCode() {
         return Objects.hash(methodResults);
@@ -61,5 +67,9 @@ public class TestCaseResult {
         return "TestCaseResult{" +
             "methodResults=" + methodResults +
             '}';
+    }
+
+    public int numOfFailedMethod() {
+        return (int) methodResults.stream().filter(each -> !each.isSuccess()).count();
     }
 }

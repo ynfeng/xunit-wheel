@@ -12,7 +12,7 @@ public class TestCase {
     }
 
     public TestCaseResult run() {
-        return TestCaseResult.create(testMethods.run());
+        return TestCaseResult.create(this.getClass().getName(), testMethods.run());
     }
 
     public void registerTestMethod(String name, Runnable method) {

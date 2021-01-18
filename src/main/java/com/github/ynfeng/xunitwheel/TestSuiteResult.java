@@ -1,19 +1,13 @@
 package com.github.ynfeng.xunitwheel;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TestSuiteResult {
-    private final String name;
     private final Map<Class<? extends TestCase>, TestCaseResult> testCaseResults = new HashMap<>();
-
-    public TestSuiteResult(String name) {
-        this.name = name;
-    }
-
-    public String testSuiteName() {
-        return name;
-    }
 
     public int numOfTestCaseResult() {
         return testCaseResults.size();
@@ -31,5 +25,9 @@ public class TestSuiteResult {
 
     public TestCaseResult testCaseResult(Class<?> testCaseClass) {
         return testCaseResults.get(testCaseClass);
+    }
+
+    public List<TestCaseResult> testCaseResults() {
+        return Collections.unmodifiableList(new ArrayList<>(testCaseResults.values()));
     }
 }
