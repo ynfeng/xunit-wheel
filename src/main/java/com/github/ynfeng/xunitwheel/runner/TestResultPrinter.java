@@ -33,7 +33,7 @@ public final class TestResultPrinter {
         }
     }
 
-    public static void setPrintStream(PrintStream printStream) {
+    public static void redirectOutputStream(PrintStream printStream) {
         INSTANCE.printStream = printStream;
     }
 }

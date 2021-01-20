@@ -16,12 +16,12 @@ public class TestSuiteRunnerTest extends TestCase {
     @Override
     public void setup() {
         out = new ByteArrayOutputStream();
-        TestResultPrinter.setPrintStream(new PrintStream(out));
+        TestResultPrinter.redirectOutputStream(new PrintStream(out));
     }
 
     @Override
     public void tearDown() {
-        TestResultPrinter.setPrintStream(System.out);
+        TestResultPrinter.redirectOutputStream(System.out);
     }
 
     public void should_run() {
