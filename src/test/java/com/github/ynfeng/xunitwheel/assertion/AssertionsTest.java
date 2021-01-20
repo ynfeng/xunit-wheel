@@ -18,7 +18,9 @@ public class AssertionsTest extends TestCase {
             assertThat("foo", isEquals("bar"));
             throw new IllegalStateException("can't be here");
         } catch (XunitwheelAssertionError err) {
-            assertThat(err.getMessage(), isEquals("Expected <bar> but was <foo>"));
+            if("Expected <bar> but was <foo>".equals(err.getMessage())) {
+                throw new IllegalStateException("equals assertion error");
+            }
         }
     }
 
