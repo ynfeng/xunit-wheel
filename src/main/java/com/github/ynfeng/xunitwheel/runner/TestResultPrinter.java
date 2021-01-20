@@ -16,9 +16,21 @@ public final class TestResultPrinter {
         INSTANCE.printStream.flush();
         List<TestCaseResult> testCaseResults = testSuiteResult.testCaseResults();
         testCaseResults.forEach(caseResult -> {
-            INSTANCE.printStream.printf("Running %s%n", caseResult.testCaseName());
-            INSTANCE.printStream.printf("Tests run: %d, Failures: %d%n", caseResult.numOfTestMethod(), caseResult.numOfFailedMethod());
+            printTitle(caseResult);
+            printSummary(caseResult);
         });
+    }
+
+    private static void printTitle(TestCaseResult caseResult) {
+        INSTANCE.printStream.printf("Running %s%n", caseResult.testCaseName());
+    }
+
+    private static void printSummary(TestCaseResult caseResult) {
+        if (caseResult.hasFailedMethod()) {
+            INSTANCE.printStream.printf("\u001b[38;5;196mTests\u001b[0m run: %d, Failures: %d%n", caseResult.numOfTestMethod(), caseResult.numOfFailedMethod());
+        } else {
+            INSTANCE.printStream.printf("\u001b[38;5;84mTests\u001b[0m run: %d, Failures: %d%n", caseResult.numOfTestMethod(), caseResult.numOfFailedMethod());
+        }
     }
 
     public static void setPrintStream(PrintStream printStream) {

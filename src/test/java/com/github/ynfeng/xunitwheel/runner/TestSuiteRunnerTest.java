@@ -31,9 +31,9 @@ public class TestSuiteRunnerTest extends TestCase {
         }
 
         String expectOutput = "Running com.github.ynfeng.xunitwheel.SingleTestMethodTestCase\n" +
-            "Tests run: 1, Failures: 0\n" +
+            "\u001B[38;5;84mTests\u001B[0m run: 1, Failures: 0\n" +
             "Running com.github.ynfeng.xunitwheel.BrokenTestCase\n" +
-            "Tests run: 1, Failures: 1\n";
+            "\u001B[38;5;196mTests\u001B[0m run: 1, Failures: 1\n";
         assertEquals(expectOutput, out.toString());
     }
 

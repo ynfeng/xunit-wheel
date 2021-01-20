@@ -72,4 +72,8 @@ public class TestCaseResult {
     public int numOfFailedMethod() {
         return (int) methodResults.stream().filter(each -> !each.isSuccess()).count();
     }
+
+    public boolean hasFailedMethod() {
+        return numOfFailedMethod() > 0;
+    }
 }
