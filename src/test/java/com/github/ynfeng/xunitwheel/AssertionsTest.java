@@ -3,6 +3,8 @@ package com.github.ynfeng.xunitwheel;
 import static com.github.ynfeng.xunitwheel.Assertions.assertEquals;
 import static com.github.ynfeng.xunitwheel.Assertions.fail;
 
+import com.github.ynfeng.xunitwheel.assertion.XunitwheelAssertionError;
+
 public class AssertionsTest extends TestCase {
 
     public AssertionsTest() {

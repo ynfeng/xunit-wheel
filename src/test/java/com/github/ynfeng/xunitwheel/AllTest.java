@@ -12,5 +12,6 @@ public class AllTest extends TestSuite {
         registerTestCase(new ClassScannerTest());
         registerTestCase(new AnnotationTestCaseScannerTest());
         registerTestCase(new TestSuiteRunnerTest());
+        registerTestCase(new com.github.ynfeng.xunitwheel.assertion.AssertionsTest());
     }
 }

@@ -1,5 +1,7 @@
 package com.github.ynfeng.xunitwheel;
 
+import com.github.ynfeng.xunitwheel.assertion.XunitwheelAssertionError;
+
 public final class Assertions {
 
     private Assertions() {

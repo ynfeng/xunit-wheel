@@ -15,16 +15,13 @@ public class TestRunner {
         }
     }
 
-    public void run() {
-        try {
-            TestSuiteResult testSuiteResult = testSuite.run();
-            TestResultPrinter.printResult(testSuiteResult);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public void run() throws Throwable {
+        TestSuiteResult testSuiteResult = testSuite.run();
+        TestResultPrinter.printResult(testSuiteResult);
+        testSuiteResult.reportAnyFailed();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Throwable {
         new TestRunner(args[0]).run();
     }
 }

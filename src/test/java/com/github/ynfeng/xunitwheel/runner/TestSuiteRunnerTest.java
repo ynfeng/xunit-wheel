@@ -25,7 +25,10 @@ public class TestSuiteRunnerTest extends TestCase {
     }
 
     public void should_run() {
-        TestRunner.main(new String[] {"com.github.ynfeng.xunitwheel.runner.TestableTestSuite"});
+        try {
+            TestRunner.main(new String[] {"com.github.ynfeng.xunitwheel.runner.TestableTestSuite"});
+        } catch (Throwable ignored) {
+        }
 
         String expectOutput = "Running com.github.ynfeng.xunitwheel.SingleTestMethodTestCase\n" +
             "Tests run: 1, Failures: 0\n" +

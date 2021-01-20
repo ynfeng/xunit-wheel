@@ -1,4 +1,4 @@
-package com.github.ynfeng.xunitwheel;
+package com.github.ynfeng.xunitwheel.assertion;
 
 @SuppressWarnings("serial")
 public class XunitwheelAssertionError extends Error {
