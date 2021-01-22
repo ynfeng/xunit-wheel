@@ -15,6 +15,6 @@ public class TestCases {
     }
 
     public void run(TestSuiteResult result) {
-        cases.forEach(testCase -> result.addTestCaseResult(testCase.getClass(), testCase.run()));
+        cases.forEach(testCase -> result.addTestCaseResult(testCase.testClass(), testCase.run()));
     }
 }

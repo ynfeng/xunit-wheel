@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Map;
 
 public class TestSuiteResult {
-    private final Map<Class<? extends TestCase>, TestCaseResult> testCaseResults = new HashMap<>();
+    private final Map<Class<?>, TestCaseResult> testCaseResults = new HashMap<>();
 
     public int numOfTestCaseResult() {
         return testCaseResults.size();
     }
 
-    public void addTestCaseResult(Class<? extends TestCase> testCaseClass, TestCaseResult testCaseResult) {
+    public void addTestCaseResult(Class<?> testCaseClass, TestCaseResult testCaseResult) {
         testCaseResults.put(testCaseClass, testCaseResult);
     }
 

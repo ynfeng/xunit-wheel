@@ -2,7 +2,7 @@ package com.github.ynfeng.xunitwheel;
 
 import java.util.List;
 
-public class TestCase {
+public abstract class TestCase {
     private final TestMethods testMethods = new TestMethods();
 
     public void setup() {
@@ -12,7 +12,11 @@ public class TestCase {
     }
 
     public TestCaseResult run() {
-        return TestCaseResult.create(this.getClass().getName(), testMethods.run());
+        return TestCaseResult.create(testCaseName(), testMethods.run());
+    }
+
+    protected String testCaseName() {
+        return getClass().getName();
     }
 
     public void registerTestMethod(String name, Runnable method) {
@@ -25,5 +29,9 @@ public class TestCase {
 
     protected List<String> testMethodNames() {
         return testMethods.methodNames();
+    }
+
+    protected Class<?> testClass() {
+        return getClass();
     }
 }

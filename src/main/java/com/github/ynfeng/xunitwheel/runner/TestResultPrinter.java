@@ -13,7 +13,6 @@ public final class TestResultPrinter {
     }
 
     public static void printResult(TestSuiteResult testSuiteResult) {
-        INSTANCE.printStream.flush();
         List<TestCaseResult> testCaseResults = testSuiteResult.testCaseResults();
         testCaseResults.forEach(caseResult -> {
             printTitle(caseResult);
