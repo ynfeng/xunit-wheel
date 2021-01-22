@@ -1,6 +1,7 @@
 package com.github.ynfeng.xunitwheel.annotation;
 
-import static com.github.ynfeng.xunitwheel.Assertions.assertEquals;
+import static com.github.ynfeng.xunitwheel.assertion.Assertions.assertThat;
+import static com.github.ynfeng.xunitwheel.assertion.Assertions.isEquals;
 
 import com.github.ynfeng.xunitwheel.TestCase;
 import com.github.ynfeng.xunitwheel.utils.AnnotationTestCaseClassScanner;
@@ -17,7 +18,7 @@ public class AnnotationTestCaseScannerTest extends TestCase {
 
         List<Class<?>> testCases = scanner.scan("com.github.ynfeng.xunitwheel");
 
-        assertEquals(testCases.get(0), AnnotationTest.class);
+        assertThat(testCases.get(0), isEquals(AnnotationTest.class));
     }
 
     public static void main(String[] args) throws Throwable {

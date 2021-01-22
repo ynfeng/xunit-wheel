@@ -1,6 +1,5 @@
 package com.github.ynfeng.xunitwheel;
 
-import static com.github.ynfeng.xunitwheel.Assertions.assertEquals;
 import static com.github.ynfeng.xunitwheel.assertion.Assertions.assertThat;
 import static com.github.ynfeng.xunitwheel.assertion.Assertions.isEquals;
 
@@ -73,10 +72,10 @@ public class TestCaseTest extends TestCase {
         BrokenSetupTestCase testCase = new BrokenSetupTestCase();
 
         TestCaseResult testResult = testCase.run();
-        assertEquals(testCase.methodLog, " setup setup");
-        assertEquals(testResult.numOfTestMethod(), 2);
-        assertEquals(testResult.methodResults().get(0).isSuccess(), false);
-        assertEquals(testResult.methodResults().get(1).isSuccess(), false);
+        assertThat(testCase.methodLog, isEquals(" setup setup"));
+        assertThat(testResult.numOfTestMethod(), isEquals(2));
+        assertThat(testResult.methodResults().get(0).isSuccess(), isEquals(false));
+        assertThat(testResult.methodResults().get(1).isSuccess(), isEquals(false));
     }
 
     public void should_execute_tear_down_method_after_each_test_method() {
@@ -92,10 +91,10 @@ public class TestCaseTest extends TestCase {
         BrokenTearDownTestCase testCase = new BrokenTearDownTestCase();
 
         TestCaseResult testResult = testCase.run();
-        assertEquals(testCase.methodLog, " setup method1 teardown setup method2 teardown");
-        assertEquals(testResult.numOfTestMethod(), 2);
-        assertEquals(testResult.methodResults().get(0).isSuccess(), false);
-        assertEquals(testResult.methodResults().get(1).isSuccess(), false);
+        assertThat(testCase.methodLog, isEquals(" setup method1 teardown setup method2 teardown"));
+        assertThat(testResult.numOfTestMethod(), isEquals(2));
+        assertThat(testResult.methodResults().get(0).isSuccess(), isEquals(false));
+        assertThat(testResult.methodResults().get(1).isSuccess(), isEquals(false));
     }
 
     public static void main(String[] args) throws Throwable {

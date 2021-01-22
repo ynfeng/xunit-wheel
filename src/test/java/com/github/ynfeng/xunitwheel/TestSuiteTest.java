@@ -1,6 +1,7 @@
 package com.github.ynfeng.xunitwheel;
 
-import static com.github.ynfeng.xunitwheel.Assertions.assertEquals;
+import static com.github.ynfeng.xunitwheel.assertion.Assertions.assertThat;
+import static com.github.ynfeng.xunitwheel.assertion.Assertions.isEquals;
 
 public class TestSuiteTest extends TestCase {
     public TestSuiteTest() {
@@ -13,7 +14,7 @@ public class TestSuiteTest extends TestCase {
         testSuite.registerTestCase(new MultiTestMethodTestCase());
         testSuite.registerTestCase(new SingleTestMethodTestCase());
 
-        assertEquals(testSuite.numOfTestCase(), 2);
+        assertThat(testSuite.numOfTestCase(), isEquals(2));
     }
 
     public void should_run_test_suite() {
@@ -23,12 +24,12 @@ public class TestSuiteTest extends TestCase {
 
         TestSuiteResult testSuiteResult = testSuite.run();
 
-        assertEquals(testSuiteResult.numOfTestCaseResult(), 2);
+        assertThat(testSuiteResult.numOfTestCaseResult(), isEquals(2));
 
         TestCaseResult multiMethodTestResult = testSuiteResult.testCaseResult(MultiTestMethodTestCase.class);
         TestCaseResult borkenTestResult = testSuiteResult.testCaseResult(BrokenTestCase.class);
-        assertEquals(multiMethodTestResult, new MultiTestMethodTestCase().run());
-        assertEquals(borkenTestResult, new BrokenTestCase().run());
+        assertThat(new MultiTestMethodTestCase().run(), isEquals(multiMethodTestResult));
+        assertThat(new BrokenTestCase().run(), isEquals(borkenTestResult));
     }
 
     public static void main(String[] args) throws Throwable {
