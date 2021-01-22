@@ -3,11 +3,11 @@ package com.github.ynfeng.xunitwheel.runner;
 import com.github.ynfeng.xunitwheel.TestSuite;
 import com.github.ynfeng.xunitwheel.TestSuiteResult;
 
-public class TestRunner {
+public class TestSuiteRunner implements Runner {
 
     private final TestSuite testSuite;
 
-    public TestRunner(String testSuiteClass) {
+    public TestSuiteRunner(String testSuiteClass) {
         try {
             testSuite = (TestSuite) Class.forName(testSuiteClass).newInstance();
         } catch (Exception e) {
@@ -15,6 +15,7 @@ public class TestRunner {
         }
     }
 
+    @Override
     public void run() throws Throwable {
         TestSuiteResult testSuiteResult = testSuite.run();
         TestResultPrinter.printResult(testSuiteResult);
@@ -22,6 +23,6 @@ public class TestRunner {
     }
 
     public static void main(String[] args) throws Throwable {
-        new TestRunner(args[0]).run();
+        new TestSuiteRunner(args[0]).run();
     }
 }

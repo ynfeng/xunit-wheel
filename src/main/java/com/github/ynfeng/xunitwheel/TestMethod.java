@@ -23,7 +23,10 @@ public class TestMethod {
         } catch (Throwable t) {
             return MethodResult.failed(name(), t);
         } finally {
-            testCase.tearDown();
+            try {
+                testCase.tearDown();
+            } catch (Throwable ignored) {
+            }
         }
     }
 

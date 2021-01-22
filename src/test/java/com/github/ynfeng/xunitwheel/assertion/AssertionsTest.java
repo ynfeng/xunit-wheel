@@ -4,14 +4,11 @@ import static com.github.ynfeng.xunitwheel.assertion.Assertions.assertThat;
 import static com.github.ynfeng.xunitwheel.assertion.Assertions.isEquals;
 import static com.github.ynfeng.xunitwheel.assertion.Assertions.notNull;
 
-import com.github.ynfeng.xunitwheel.TestCase;
+import com.github.ynfeng.xunitwheel.annotation.Test;
 
-public class AssertionsTest extends TestCase {
-    public AssertionsTest() {
-        registerTestMethod("should_assert_equals", this::should_assert_equals);
-        registerTestMethod("should_assert_not_null", this::should_assert_not_null);
-    }
+public class AssertionsTest {
 
+    @Test
     public void should_assert_equals() {
         assertThat("foo", isEquals("foo"));
         try {
@@ -24,6 +21,7 @@ public class AssertionsTest extends TestCase {
         }
     }
 
+    @Test
     public void should_assert_not_null() {
         assertThat("foo", notNull());
         try {
@@ -32,9 +30,5 @@ public class AssertionsTest extends TestCase {
         } catch (XunitwheelAssertionError err) {
             assertThat(err.getMessage(), isEquals("Expect not null but was null"));
         }
-    }
-
-    public static void main(String[] args) throws Throwable {
-        new AssertionsTest().run().reportAnyFailed();
     }
 }

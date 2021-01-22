@@ -16,8 +16,7 @@ jar {
 }
 
 task xunitTest(type: JavaExec) {
-    main = 'com.github.ynfeng.xunitwheel.runner.TestRunner'
+    main = 'com.github.ynfeng.xunitwheel.runner.AnnotationTestRunner'
     classpath = sourceSets.test.runtimeClasspath
-    args(testSuite)
 }
 
