@@ -17,7 +17,7 @@ public class AnnotationTestCaseScannerTest extends TestCase {
 
         List<Class<?>> testCases = scanner.scan("com.github.ynfeng.xunitwheel");
 
-        assertEquals(AnnotationTest.class, testCases.get(0));
+        assertEquals(testCases.get(0), AnnotationTest.class);
     }
 
     public static void main(String[] args) throws Throwable {

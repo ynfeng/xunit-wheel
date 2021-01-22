@@ -7,13 +7,9 @@ public final class Assertions {
     private Assertions() {
     }
 
-    public static void assertEquals(Object excepted, Object actual) {
+    public static void assertEquals(Object actual, Object excepted) {
         if (!excepted.equals(actual)) {
             throw new XunitwheelAssertionError(String.format("Expected <%s> but <%s>", excepted, actual));
         }
-    }
-
-    public static void fail(String msg) {
-        throw new XunitwheelAssertionError(msg);
     }
 }

@@ -15,10 +15,10 @@ public class ClassScannerTest extends TestCase {
     public void should_scan_files() {
         List<Class<?>> classes = new ClassScanner().scan("com.github.ynfeng.xunitwheel");
 
-        assertEquals(true, !classes.isEmpty());
-        assertEquals(true, classes.contains(AllTest.class));
-        assertEquals(true, classes.contains(AnnotationTestCaseScannerTest.class));
-        assertEquals(true, classes.contains(ClassScannerTest.class));
+        assertEquals(!classes.isEmpty(), true);
+        assertEquals(classes.contains(AllTest.class), true);
+        assertEquals(classes.contains(AnnotationTestCaseScannerTest.class), true);
+        assertEquals(classes.contains(ClassScannerTest.class), true);
     }
 
     public static void main(String[] args) throws Throwable {

@@ -13,7 +13,7 @@ public class TestSuiteTest extends TestCase {
         testSuite.registerTestCase(new MultiTestMethodTestCase());
         testSuite.registerTestCase(new SingleTestMethodTestCase());
 
-        assertEquals(2, testSuite.numOfTestCase());
+        assertEquals(testSuite.numOfTestCase(), 2);
     }
 
     public void should_run_test_suite() {
@@ -23,12 +23,12 @@ public class TestSuiteTest extends TestCase {
 
         TestSuiteResult testSuiteResult = testSuite.run();
 
-        assertEquals(2, testSuiteResult.numOfTestCaseResult());
+        assertEquals(testSuiteResult.numOfTestCaseResult(), 2);
 
         TestCaseResult multiMethodTestResult = testSuiteResult.testCaseResult(MultiTestMethodTestCase.class);
         TestCaseResult borkenTestResult = testSuiteResult.testCaseResult(BrokenTestCase.class);
-        assertEquals(new MultiTestMethodTestCase().run(), multiMethodTestResult);
-        assertEquals(new BrokenTestCase().run(), borkenTestResult);
+        assertEquals(multiMethodTestResult, new MultiTestMethodTestCase().run());
+        assertEquals(borkenTestResult, new BrokenTestCase().run());
     }
 
     public static void main(String[] args) throws Throwable {
