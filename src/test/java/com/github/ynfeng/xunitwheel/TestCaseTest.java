@@ -4,6 +4,13 @@ import static com.github.ynfeng.xunitwheel.assertion.Assertions.assertThat;
 import static com.github.ynfeng.xunitwheel.assertion.Assertions.isEquals;
 
 import com.github.ynfeng.xunitwheel.annotation.Test;
+import com.github.ynfeng.xunitwheel.fixture.BrokenSetupTestCase;
+import com.github.ynfeng.xunitwheel.fixture.BrokenTearDownTestCase;
+import com.github.ynfeng.xunitwheel.fixture.BrokenTestCase;
+import com.github.ynfeng.xunitwheel.fixture.MultiTestMethodTestCase;
+import com.github.ynfeng.xunitwheel.fixture.SetupTestCase;
+import com.github.ynfeng.xunitwheel.fixture.SingleTestMethodTestCase;
+import com.github.ynfeng.xunitwheel.fixture.TearDownTestCase;
 import java.util.Arrays;
 import java.util.List;
 

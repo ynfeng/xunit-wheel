@@ -10,11 +10,11 @@ public class AnnotationTestCase extends TestCase {
 
     public AnnotationTestCase(Class<?> testCls) {
         testClass = testCls;
-        Object testCaseInstance = instanceTestCase();
-        registerAnnotationMethods(testCaseInstance);
+        registerAnnotationMethods();
     }
 
-    private void registerAnnotationMethods(Object testCaseInstance) {
+    private void registerAnnotationMethods() {
+        Object testCaseInstance = instanceTestCase();
         Arrays.stream(testClass.getMethods())
             .filter(method -> method.isAnnotationPresent(Test.class))
             .forEach(testMethod -> registerAnnotationTestMethod(testCaseInstance, testMethod));

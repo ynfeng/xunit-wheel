@@ -44,8 +44,15 @@ public class ClassScanner {
     private static List<String> getClassNames(String basePackage, Stream<File> stream) {
         return stream.map(File::getName)
             .map(each -> each.substring(0, each.lastIndexOf('.')))
-            .map(each -> basePackage + '.' + each)
+            .map(fileName -> splicingPackage(basePackage, fileName))
             .collect(Collectors.toList());
+    }
+
+    private static String splicingPackage(String basePackage, String fileName) {
+        if(basePackage == null || basePackage.isEmpty()) {
+            return fileName;
+        }
+        return basePackage + '.' + fileName;
     }
 
     private static List<String> getChildDirsClassName(String pkg, File baseDir) {
@@ -56,7 +63,7 @@ public class ClassScanner {
     }
 
     private static List<String> getDirClassNames(String pkg, File childDir) {
-        String currentPackage = pkg + '.' + childDir.getName();
+        String currentPackage = splicingPackage(pkg, childDir.getName());
         List<String> classNames = getClassNames(currentPackage, directoryFiles(childDir));
         classNames.addAll(getChildDirsClassName(currentPackage, childDir));
         return classNames;

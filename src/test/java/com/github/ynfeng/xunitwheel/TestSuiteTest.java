@@ -4,6 +4,9 @@ import static com.github.ynfeng.xunitwheel.assertion.Assertions.assertThat;
 import static com.github.ynfeng.xunitwheel.assertion.Assertions.isEquals;
 
 import com.github.ynfeng.xunitwheel.annotation.Test;
+import com.github.ynfeng.xunitwheel.fixture.BrokenTestCase;
+import com.github.ynfeng.xunitwheel.fixture.MultiTestMethodTestCase;
+import com.github.ynfeng.xunitwheel.fixture.SingleTestMethodTestCase;
 
 public class TestSuiteTest {
 

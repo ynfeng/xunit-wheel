@@ -1,9 +1,11 @@
-package com.github.ynfeng.xunitwheel;
+package com.github.ynfeng.xunitwheel.fixture;
 
-public class BrokenSetupTestCase extends TestCase {
+import com.github.ynfeng.xunitwheel.TestCase;
+
+public class TearDownTestCase extends TestCase {
     public String methodLog = "";
 
-    public BrokenSetupTestCase() {
+    public TearDownTestCase() {
         registerTestMethod("method1", this::method1);
         registerTestMethod("method2", this::method2);
     }
@@ -11,7 +13,11 @@ public class BrokenSetupTestCase extends TestCase {
     @Override
     public void setup() {
         methodLog += " setup";
-        throw new RuntimeException("broken setup");
+    }
+
+    @Override
+    public void tearDown() {
+        methodLog += " teardown";
     }
 
     public void method1() {

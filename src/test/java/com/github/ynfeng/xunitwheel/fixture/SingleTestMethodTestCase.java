@@ -1,4 +1,6 @@
-package com.github.ynfeng.xunitwheel;
+package com.github.ynfeng.xunitwheel.fixture;
+
+import com.github.ynfeng.xunitwheel.TestCase;
 
 public class SingleTestMethodTestCase extends TestCase {
     public String methodRunLog = "";

@@ -7,7 +7,7 @@ public class AnnotationTestRunner implements Runner {
 
     @Override
     public void run() throws Throwable {
-        AnnotationTestSuite testSuite = new AnnotationTestSuite("com.github.ynfeng.xunitwheel");
+        AnnotationTestSuite testSuite = new AnnotationTestSuite();
         TestSuiteResult testSuiteResult = testSuite.run();
         TestResultPrinter.printResult(testSuiteResult);
         testSuiteResult.reportAnyFailed();
