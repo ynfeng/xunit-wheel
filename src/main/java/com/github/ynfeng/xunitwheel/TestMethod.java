@@ -19,14 +19,10 @@ public class TestMethod {
         try {
             testCase.setup();
             method.run();
+            testCase.tearDown();
             return MethodResult.success(name());
         } catch (Throwable t) {
             return MethodResult.failed(name(), t);
-        } finally {
-            try {
-                testCase.tearDown();
-            } catch (Throwable ignored) {
-            }
         }
     }
 

@@ -93,7 +93,7 @@ public class TestCaseTest {
     }
 
     @Test
-    public void test_method_should_not_failed_when_tear_down_method_broken() {
+    public void test_method_should_failed_when_tear_down_method_broken() {
         BrokenTearDownTestCase testCase = new BrokenTearDownTestCase();
 
         TestCaseResult testResult = null;
@@ -104,7 +104,7 @@ public class TestCaseTest {
 
         assertThat(testCase.methodLog, isEquals(" setup method1 teardown setup method2 teardown"));
         assertThat(testResult.numOfTestMethod(), isEquals(2));
-        assertThat(testResult.methodResults().get(0).isSuccess(), isEquals(true));
-        assertThat(testResult.methodResults().get(1).isSuccess(), isEquals(true));
+        assertThat(testResult.methodResults().get(0).isSuccess(), isEquals(false));
+        assertThat(testResult.methodResults().get(1).isSuccess(), isEquals(false));
     }
 }

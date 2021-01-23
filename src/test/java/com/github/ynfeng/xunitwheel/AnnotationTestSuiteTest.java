@@ -7,7 +7,6 @@ import com.github.ynfeng.xunitwheel.annotation.AnnotationTest;
 import com.github.ynfeng.xunitwheel.annotation.Test;
 
 class AnnotationTestSuiteTest {
-
     @Test
     public void should_get_test_case() {
         AnnotationTestSuite testSuite = new AnnotationTestSuite("com.github.ynfeng.xunitwheel.annotation");

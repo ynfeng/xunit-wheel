@@ -49,7 +49,7 @@ public class ClassScanner {
     }
 
     private static String splicingPackage(String basePackage, String fileName) {
-        if(basePackage == null || basePackage.isEmpty()) {
+        if (basePackage == null || basePackage.isEmpty()) {
             return fileName;
         }
         return basePackage + '.' + fileName;

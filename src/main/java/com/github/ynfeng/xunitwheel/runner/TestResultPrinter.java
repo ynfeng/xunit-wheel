@@ -15,21 +15,29 @@ public final class TestResultPrinter {
     public static void printResult(TestSuiteResult testSuiteResult) {
         List<TestCaseResult> testCaseResults = testSuiteResult.testCaseResults();
         testCaseResults.forEach(caseResult -> {
-            printTitle(caseResult);
             printSummary(caseResult);
+            printDetail(caseResult);
         });
     }
 
-    private static void printTitle(TestCaseResult caseResult) {
-        INSTANCE.printStream.printf("Running %s%n", caseResult.testCaseName());
+    private static void printSummary(TestCaseResult caseResult) {
+        INSTANCE.printStream.printf("%nRunning %s%n", caseResult.testCaseName());
+        if (caseResult.hasFailedMethod()) {
+            INSTANCE.printStream.printf("Tests run: %d, Failures: %d%n", caseResult.numOfTestMethod(), caseResult.numOfFailedMethod());
+        } else {
+            INSTANCE.printStream.printf("Tests run: %d, Failures: %d%n", caseResult.numOfTestMethod(), caseResult.numOfFailedMethod());
+        }
     }
 
-    private static void printSummary(TestCaseResult caseResult) {
-        if (caseResult.hasFailedMethod()) {
-            INSTANCE.printStream.printf("\u001b[38;5;196mTests\u001b[0m run: %d, Failures: %d%n", caseResult.numOfTestMethod(), caseResult.numOfFailedMethod());
-        } else {
-            INSTANCE.printStream.printf("\u001b[38;5;84mTests\u001b[0m run: %d, Failures: %d%n", caseResult.numOfTestMethod(), caseResult.numOfFailedMethod());
-        }
+    private static void printDetail(TestCaseResult caseResult) {
+        caseResult.methodResults()
+            .forEach(methodResult -> {
+                INSTANCE.printStream.printf("> %s %s %n", methodResult.methodName(), renderMethodResult(methodResult));
+            });
+    }
+
+    private static String renderMethodResult(com.github.ynfeng.xunitwheel.MethodResult methodResult) {
+        return methodResult.isSuccess() ? "\u001b[38;5;84mSUCCESS\u001b[0m" : "\u001b[38;5;196mFAILED\u001b[0m";
     }
 
     public static void redirectOutputStream(PrintStream printStream) {
